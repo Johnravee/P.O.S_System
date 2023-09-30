@@ -851,6 +851,7 @@ function VoidPass(){
           document.querySelector('.List').style.width = "100%"
           document.querySelector('.List').style.overflowY = "hidden"
           document.querySelector('.list-item').style.display = "flex"
+          document.querySelector('.amount').style.display = "block"
           
           ListDisplay();
           TotalAmount();

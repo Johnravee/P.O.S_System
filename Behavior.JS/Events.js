@@ -340,7 +340,7 @@ function Void(){
    if(Ul.childElementCount <= 0)
    {
      dishBtns.forEach(btns => {btns.style.zIndex = '-1'})
-     PopupsError("No item to")
+     PopupsError("No item to void")
      return
    }
 
