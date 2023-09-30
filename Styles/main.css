@@ -998,15 +998,8 @@ b{
     display: none;
   }
 
-  #gif{
-    position: absolute;
-    top: 5%;
-  }
 
-
-  /* Void Regs */
-
-  
+  /* Void Regs */  
   .modal-void{
     background-color: var(--whiteBg);
     border-radius: 5px;
