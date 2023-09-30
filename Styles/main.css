@@ -1,0 +1,1604 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Rajdhani:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: .6px;
+}
+
+:root{
+    --buttonActive-bg: #5cb85c;
+    --whiteBg: #F5F3F0; 
+    --greyFont: #333333;
+    --whiteFont: #F5F3F0;
+}
+
+body{
+    background-color: #202628;
+    
+}
+
+
+#createerr,#vcreateerr{
+    color: red;
+}
+
+/* LOADING ANIMATION */
+.center-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-direction: column;
+	width: 100%;
+	height: 100vh;
+    background-color: #202628;
+	position: absolute;
+    z-index: 1;
+
+}
+
+.login-loading{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-direction: column;
+	width: 100%;
+	height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+	position: absolute;
+    z-index: 1;
+    display: none;
+}
+
+.login-loading h1 {
+    color: var(--whiteFont);
+}
+
+b{
+    color: var(--whitebg-Color);
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 1px 1px 0px rgba(251, 250, 250, 0.485);
+    font-size: 1vw;
+    opacity: .7;
+}
+
+.loader-circle-28 {
+	width: 70px;
+	height: 70px;
+	position: relative;
+}
+.loader-circle-28:after,
+.loader-circle-28:before {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 10px solid transparent;
+	border-top-color: #ad60f5;
+	border-radius: 50%;
+}
+.loader-circle-28:before {
+	animation: loader-circle-28-spinnerOne 1.2s linear infinite;
+}
+.loader-circle-28:after {
+	border: 10px solid transparent;
+	border-bottom-color: #ad60f5;
+	animation: loader-circle-28-spinnerTwo 1.2s linear infinite;
+}
+@keyframes loader-circle-28-spinnerOne {
+	0% {
+		transform: rotate(0deg);
+		border-width: 10px;
+	}
+	50% {
+		transform: rotate(180deg);
+		border-width: 1px;
+	}
+	100% {
+		transform: rotate(360deg);
+		border-width: 10px;
+	}
+}
+@keyframes loader-circle-28-spinnerTwo {
+	0% {
+		transform: rotate(0deg);
+		border-width: 1px;
+	}
+	50% {
+		transform: rotate(180deg);
+		border-width: 10px;
+	}
+	100% {
+		transform: rotate(360deg);
+		border-width: 1px;
+	}
+}
+
+
+/* Login */
+.modal-Login{
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 500px;
+    height: 70vh;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.loginbtn{
+    background-color: #007bff;
+    color: var(--whiteFont);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login-close{
+    position: absolute;
+    top: 3%;
+    left: 92%;
+    padding: 10px;
+    color: var(--whiteFont);
+    background-color: red;
+    border: none;
+}
+
+
+.modal-Login h1{
+    margin-bottom: 20px;
+ }
+
+.modal-Login input{
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 10px;
+}
+
+/* SignUp */
+.modal-container {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 500px;
+    height: 70vh;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+  }
+
+  .close-btn{
+    position: absolute;
+    top: 3%;
+    left: 92%;
+    padding: 10px;
+    color: var(--whiteFont);
+    background-color: red;
+    border: none;
+  }
+
+ .modal-container h1{
+    margin-bottom: 20px;
+ }
+  
+
+  .modal-container input {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 10px;
+  }
+
+  .btn {
+    background-color: #007bff;
+    color:var(--whiteFont);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+
+/* ==================== */
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+    width: 100%;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 4 / 4; display:none }
+    .div2 { grid-area: 1 / 4 / 4 / 7;
+    display: flex;  display:none  }
+    .div3 { grid-area: 1 / 7 / 7 / 8;  display:none  }
+    .div4 { grid-area: 4 / 1 / 7 / 7; }
+    
+
+    
+    
+    .ProductList{
+    height: 100%;
+    width: 100%;
+    background-color: var(--whiteBg);
+    border: 2px solid gray;
+   
+    }
+
+    .labels{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-bottom: 2px solid gray;
+        width: 100%;
+        text-align: center;
+        font-size: 1.1vw ;
+    }
+
+   
+
+  
+
+
+    .List{
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    font-size: 20px;
+    overflow-y: hidden; 
+    pointer-events: none; 
+}
+
+    .list-item{
+        cursor: default;
+    }
+
+
+    .displaylbl{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    height: 78%;
+    padding: 5px 20px;
+    width: 100%;
+    }
+
+    .liCon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+
+/* TotalAmout */
+.amount{
+  margin-top: 10px;
+    height: 105px;
+    width: 100%;
+    position: relative;
+    top: -2%;
+
+}
+
+#amountDisplay{
+    height: 70%;
+    text-align: end;
+    padding-right: 25px;
+    width: 100%;
+    background-color: #000;
+    color: #118C4F;
+    font-size: 50px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+
+
+#mny{
+    width: 100%;
+}
+
+
+    /* Calc */
+.Calc{
+    height: 100%;
+    width: 100%;
+    background-color: #141313;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: end;
+    border: 2px solid gray;
+    
+}
+
+.Calc > input{
+    font-size: 1.3vw;
+    color: #202628;
+
+}
+
+
+
+/* Payment */
+.Payment{
+    height: 100%;
+    width: 100%;
+    background-color: #141313;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: end;
+    border: 2px solid gray;
+    order: 1;
+    display: none;
+}
+
+
+
+#numDisplay{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 50px;
+    padding: 0 10px;
+    color: lightgreen;
+    background-color: #141313;
+    grid-column: 1/5;
+    height: 80px;
+}
+
+#PaymentDisplay{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 50px;
+    padding: 0 10px;
+    color: lightgreen;
+    background-color: #141313;
+    grid-column: 1/5;
+    height: 80px;
+}
+
+#Down{
+    grid-column: 1;
+    grid-row: 4;
+    color: rgb(239, 14, 14);
+}
+
+#Up{
+    grid-column: 1;
+    grid-row: 2 ;
+   color: rgb(239, 14, 14);
+   
+}
+
+#ExactAmount{
+    grid-column: 1;
+    grid-row: 4;
+}
+
+
+.CalcEmp1{
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.sideBtns{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 2px solid gray;
+}
+
+.sideBtns > input{
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+
+.dish{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgb(95, 93, 93);
+    display: none;
+}
+
+.dish > input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.3vw;
+    background-color: #198754;
+    color: var(--whiteFont);
+    z-index: 1;
+}
+
+.Main{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100%;
+    width: 100%;
+    border: 2px solid gray;
+    position: relative;
+    top: -50%;
+    left: 8%;
+}
+
+.Main > input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.3vw;
+    background-color: #11537d;
+    color: var(--whiteFont);
+}
+
+/* Newclassdrinks when click meal */
+.drinks{
+    height: 50vh;
+    width: 62%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+   display: none;
+    
+}
+
+.drinks > .drinksBtn{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.drinksBtn > .drinkItem{
+    height: 100%;
+    width: 100%;
+    background-color: #11537d;
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.DrinkItemBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+
+/* SilogMEal */
+.SilogProducts{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+.SilogBtn{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.SilogBtn > .SilogItem{
+    height: 100%;
+    width: 100%;
+    background-color: brown;
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.SilogItemBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+/* SizzlingProducts */
+.SizzlingProduct{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+   display: none;
+}
+
+.SizzlingBtn{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.SizzlingBtn > .SizzlingItem{
+    height: 100%;
+    width: 100%;
+    background-color: #b82741;
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.SizzlingBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+.MM{
+    background-image: url(../Images/logo.png);
+    object-fit: cover;
+    
+    
+}
+
+
+/* Family Meal */
+.familyMealsProduct{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+.familyMealsProductbtn{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.FmealItemBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+.FmealItem{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(168, 39, 39);
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+
+/* Noodles */
+
+.NoodlesProduct{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+.NoodlesProductBtn{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.NMeal{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(57, 141, 29);
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.NMealBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+
+/* Unli */
+.SizzlingProductUnli{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+.SizzlingProductUnliBtn{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.SizzlingUnliItem{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(62, 41, 126);
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.SizzlingUnliBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+/* SandWiches */
+.SandWichesProduct{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+.SandWichesProductBtn{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+
+.SandWichItem{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(62, 41, 126);
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.SandWichBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+/* Extra */
+.ExtraProduct{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #118C4F;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+.ExtraBtn{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.ExtraItem{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(48, 148, 108);
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.ExtraBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+/* Dessert */
+.DessertsProduct{
+    height: 50vh;
+    width: 85.6%;
+    background-color: #b2ddc7;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+.DessertsProductBtn{
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.DessertItem{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(64, 65, 64);
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+}
+
+.DessertBack{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+
+
+#Mode{
+    text-align: center;
+    opacity: .8;
+}
+
+
+/* RECEIPT   */
+.ReceiptBody{
+    position: absolute;
+    background-color: var(--whiteBg);
+    height: auto;
+    width: 301.57px;
+    padding: 10px ;
+  display: none;
+}
+
+.ReceiptContent{
+    max-width: 301.57px;
+    
+}
+
+.DateTime{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.item{
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.ReceiptColumn{
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    
+}
+
+.Thankies{
+    text-align: center;
+}
+
+.ReceiptNumber{
+    margin: 50px 0 0 0;
+
+}
+
+#Number{
+    font-size: 30px;
+    text-align: center;
+}
+
+.MoneyInfo{
+    padding: 5px 20px;
+}
+
+.MoneyInfo p{
+    margin: 2px 0;
+}
+
+
+/* PAYMENTCONTAINER */
+.paymentContainer{
+    height: 50vh;
+    width: 85.6%;
+    position: absolute;
+    top: 50%;
+    
+    display: flex;
+    flex-direction: row;
+    display: none;
+  
+}
+
+.PaymentDetails{
+    height: 100%;
+    width: 100%;
+    background-color: #5f5f5f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px ;
+}
+.ReceiptDetails{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    text-align: center;
+    color: var(--whiteFont);
+}
+
+
+.PaymentOptions{
+    height: 100%;
+    width: 103%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1px;
+
+}
+
+.BackPayment{
+    font-size: 5vw;
+    background-color: #060606;
+    color: var(--whiteFont);
+}
+
+.Cash{
+    grid-column: 2/4;
+    font-size: 3vh;
+}
+
+.Cashmoney{
+    font-size: 3vh;
+}
+
+/* Payment Calc */
+.Payment input{
+    background-color: rgba(66, 66, 190, 0.815);
+    color: var(--whiteFont);
+    font-size: 1.3vw;
+       
+
+}
+
+/* VOIDSTYLE */
+
+.ModalContainer {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+  
+  .modal-content {
+    width: 20%;
+    height: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 2vw;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Input and Button Styles */
+  #passwordInput, #voidNumber {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #212020;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+  
+
+  #VOIDPASSTEXT{
+    position: absolute;
+    top: 5%;
+    font-size: 1.3vw;
+    color: #141313;
+    animation: VOIDPASSTEXT 1s  alternate infinite;
+    
+  }
+
+  @keyframes VOIDPASSTEXT {
+    0%{
+        color: #141313;
+    }
+    
+    100% {
+        color:#DC3545;
+    }
+  }
+
+  #ClickSound{
+    display: none;
+  }
+
+  #gif{
+    position: absolute;
+    top: 5%;
+  }
+
+
+  /* Void Regs */
+
+  
+  .modal-void{
+    background-color: var(--whiteBg);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 500px;
+    height: 70vh;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   display: none;
+  }
+
+  .modal-void input{
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 10px;
+  }
+
+  .Voidbtn{
+    background-color: #007bff;
+    color: var(--whiteFont);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  /* Pop */
+
+  .PopupsError{
+    height: 100vh;
+    width: 100%;
+    background-color: #20262898;
+    position: absolute;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .Pops{
+    height: 25%;
+    width: 20%;
+    background-color: #eaeaea;
+    border-radius: 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #PopType{
+    font-size: 2vw;
+    height: 30%;
+    padding-left: 10px;
+    width: 100%;
+    color: #dddddd;
+    background-color:  #ff0e0e;
+    border-radius: 8px 8px 0 0;
+    animation: Error .7s  alternate infinite;
+  }
+
+  @keyframes Error {
+    0%{
+        color: #dddddd;    
+    }
+    100%{
+        color: #f38d8d;
+    }
+  }
+
+  #popMessage, #popMessageDone,.PopInformMess{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    text-align: center;
+    font-size: 1.1vw;
+    padding: 20px;
+  }
+
+  #PopOk{
+    background-color: #eaeaea;
+    width: 30%;
+    font-size: 1.5vw;
+    padding: 5px;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    margin-right: 10px;
+    border-bottom: 5px solid #198754;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: .5s;
+  }
+
+  #PopOk:hover{
+    background-color: #198754;
+    color: #dddddd;
+  }
+
+  #PopOk:active{
+    background-color: #747474;
+    border-bottom: 5px solid #747474;
+  }
+
+/* PopSucc */
+  .PopSuccess{
+    height: 100vh;
+    width: 100%;
+    background-color: #20262898;
+    position: absolute;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .PopDone{
+    height: 25%;
+    width: 20%;
+    background-color: #eaeaea;
+    border-radius: 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #PopTypeDone{
+    font-size: 2vw;
+    height: 30%;
+    padding-left: 10px;
+    width: 100%;
+    color: #dddddd;
+    background-color:  #198754;
+    border-radius: 8px 8px 0 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   animation: success .7s  linear infinite;
+    
+  }
+
+
+  #PopDonebtn{
+    background-color: #eaeaea;
+    width: 30%;
+    font-size: 1.5vw;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    align-self: flex-end;
+    margin-right: 10px;
+    border-bottom: 5px solid #198754;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: .5s;
+    
+  }
+
+
+  #PopDonebtn:hover{
+    background-color: #198754;
+    color: #dddddd;
+  }
+
+  #PopDonebtn:active{
+    background-color: #747474;
+    border-bottom: 5px solid #747474;
+  }
+
+  @keyframes success {
+    0%{
+        color: #00cf6e;
+    }
+    100%{
+        color: #eef4f1;
+    }
+  }
+
+
+  .PopupInform{
+    height: 100vh;
+    width: 100%;
+    background-color: #20262898;
+    position: absolute;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .PopInform{
+    height: 25%;
+    width: 20%;
+    background-color: #eaeaea;
+    border-radius: 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #PopInformType{
+    font-size: 2vw;
+    height: 30%;
+    padding-left: 10px;
+    width: 100%;
+    color: #dddddd;
+    background-color:  #243E95;
+    border-radius: 8px 8px 0 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    letter-spacing: 2px;
+  }
+
+  #PopInformOk{
+    background-color: #eaeaea;
+    width: 30%;
+    font-size: 1.5vw;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    align-self: flex-end;
+    margin-right: 10px;
+    border-bottom: 5px solid #243E95;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: .5s;
+  }
+
+
+  #PopInformOk:hover{
+    background-color: #243E95;
+    color: #dddddd;
+  }
+
+  #PopInformOk:active{
+    background-color: #747474;
+    border-bottom: 5px solid #747474;
+  }
+
+
+  /* DIsabled button */
+  input:disabled{
+    color: #f3f3f3;
+    cursor: not-allowed;
+  }
+
+  /* Number label */
+  sup{
+    position: absolute;
+    color: #118C4F;
+    padding: 5px 0 0 10px;
+  }
+
+  sub{
+    position: absolute;
+    color: #118C4F;
+    padding: 10px 0 0 10px;
+    font-size: 1.5vw;
+  }
+
+  .voidIndiContent{
+    height: 100vh;
+    width: 100%;
+    background-color: #060606;
+    position: fixed;
+    display: none;
+  }
+
+
+  #Voidindicator{
+    position: absolute;
+    background-color: #DC3545;
+    text-align: center;
+     width: 50%;
+     left: 72%;
+    color: var(--whiteFont);
+    font-size: 3vw;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    animation: voidindi .1s  alternate infinite;
+  }
+
+
+  #voidCancel{
+    position: absolute;
+    text-align: center;
+     width: 20%;
+     left: 72%;
+    color: var(--greyFont);
+    font-size: 2vw;
+    top: 60%;
+    transform: translate(-50%,-50%);
+  }
+
+  marquee{
+    position: absolute;
+    
+     width: 100%;
+     left: 72%;
+    color: var(--whiteFont);
+    font-size: 2vw;
+    top: 40%;
+    transform: translate(-50%,-50%);
+  }
+
+  @keyframes voidindi {
+    0%{
+        color: #ce2e3e;
+    }
+    100%{
+        color: var(--whiteFont);
+    }
+  }
+
+  /* Search Styles */
+
+  .SearchBody{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    
+    justify-content: center;
+    align-items: center;
+   background-color: #1c1b1bb3;
+      display: none;
+  }
+  .searchContent{
+    height: 80vh;
+    width: 60vh;
+    background-color: var(--whiteBg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .inputData{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid gray;
+    background-color: #202628;
+    flex-direction: column;
+  }
+
+  .inputData > p{
+    color: var(--whiteFont);
+    font-size: 1vw;
+    align-self: flex-start;
+    padding: 0 0 0 1.9cm;
+  }
+
+  #searchInput{
+    height: 50%;
+    width: 70%;
+    border: 2px solid gray;
+    background-color: #282a2a;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 10px ;
+    color: var(--whiteFont);
+    font-size: 2vw;
+  }
+
+  .txnButton{
+    height: 100%;
+    width: 100%;
+    background-color: #141313;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: end;
+    border: 2px solid gray;
+  }
+
+  .txnButton > input{
+    background-color: #202628;
+    color: var(--whiteFont);
+    font-size: 2vw;
+    
+  }
+  
+/* Search Container */
+
+.SearchedBody{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+   background-color: #1c1b1b85;
+      display: none;
+}
+  .SeachReceiptContainer{
+    position: absolute;
+    display: flex;
+    background-color: var(--whiteBg);
+    height: auto;
+    width: 350px;
+    padding: 10px ;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #3e3b3b;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+
+
+
+  .SearchReceiptContent{
+    
+    height: 100%;
+    max-height: 100%;
+    padding: 5px ;
+    width: 100%;
+    background-color: var(--whiteBg);
+  }
+
+  .Element{
+    height: 500px;
+    overflow-y: auto;
+
+  }
+
+  .SearchRecBtn{
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .SearchRecBtn > button{
+    font-size: 2vw;
+    width: 100%;
+  }
+
+
+  /* Cutoff */
+  .cutOffModal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: #06060656;
+    z-index: 1;
+    display: none;
+    
+  }
+
+  .cutoffContainer{
+    background-color: #eaeaea;
+    height: 30%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+  }
+  
+  #cutLbl{
+    color: var(--greyFont);
+    font-size: 3vw;
+    animation: Sale .7s  linear infinite;
+  
+  }
+
+
+  @keyframes Sale {
+    0%{
+      color: #198754;
+    }
+    100%{
+      color: #118C4F;
+    }
+  }
+
+  #cashierName{
+    font-size: 2vw;
+    color: var(--greyFont);
+  }
+
+  #salary{
+    font-size: 2vw;
+    margin: 0 0 10px 0;
+    color: var(--greyFont);
+  }
+
+  #cutExit{
+    background-color: #DC3545;
+    width: 50%;
+    height: 20%;
+    color: var(--whiteFont);
+    font-size: 1.5vw;
+    letter-spacing: 2px;
+  }
+
+
+  /* Manger Modal */
+  .managerModalAuth{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    
+    justify-content: center;
+    align-items: center;
+   background-color: #1c1b1bb3;
+   display: none;
+  }
+
+
+  .managerModalAuthContent{
+    height: 70vh;
+    width: 60vh;
+    background-color: var(--whiteBg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+
+  .managerPinDisplay{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  color: #ffff;
+    align-items: center;
+    background-color: #202628;
+    flex-direction: row;
+  }
+
+  #pinText{
+    background-color: #202628;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  #pin1,#pin2,#pin3,#pin4{
+    width: 10%;
+    border: none;
+    background-color: #202628;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: var(--whiteFont);
+    font-size: 2vw;
+    letter-spacing: 2px;
+    text-align: center;
+    
+  }
+
+ 
+
+  .managerButton{
+    height: 100%;
+    width: 100%;
+    background-color: #141313;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: end;
+
+   
+  }
+
+  .managerButton > input{
+    border-radius: 0;
+    font-size: 1.5vw;
+    
+  }

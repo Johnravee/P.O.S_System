@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAVEPOSEXPRESS</title>
+  <link rel="shortcut icon" href="/Images/logo.jpg" type="image/x-icon">
+  <!-- CSS ONLY -->
+  <link rel="stylesheet" type="text/css" href="../Styles/main.css">
+
+  <!-- JS ONLY -->
+  <script defer src="main.js"></script>
+  
+  <script defer src="../Behavior.JS/Events.js"></script>
+  
+
+</head>
+
+<body>
+  <!--*MODALS -->
+  <div class="cutOffModal">
+    <div class="cutoffContainer">
+      <h1 id="cutLbl">TOTAL SALE</h1>
+        <h2 id="cashierName"></h2>
+        <h3 id="salary"></h3>
+        <button id="cutExit" onclick="cutBack()">Back</button>
+    </div>
+  </div>
+
+  <div class="PopupsError">
+    <div class="Pops">
+      <h2 id="PopType">&#x26A0; Error</h2>
+      <h4 id="popMessage"></h4>
+      <button id="PopOk" onclick="PopOk()">OK</button>
+    </div>
+  </div>
+
+
+  <div class="PopupInform">
+    <div class="PopInform">
+      <h2 id="PopInformType">NOTICE</h2>
+      <h4 id="PopInformMess"></h4>
+      <button id="PopInformOk" onclick="PopInformOk()">OK</button>
+    </div>
+  </div>
+
+
+  <div class="PopSuccess">
+    <div class="PopDone">
+      <h2 id="PopTypeDone">&#10003; Success</h2>
+      <h4 id="popMessageDone"></h4>
+      <button id="PopDonebtn" onclick="PopDone()">Proceed</button>
+    </div>
+  </div>
+
+  <div class="voidIndiContent">
+    <h1 id="Voidindicator">⚠️ Void item ⚠️</h1>
+    <input type="button" id="voidCancel" value="Cancel"  onclick="voidCancel()"/>
+    <marquee behavior = "alternate">Please click item to void Please click item to void Please click item to void Please click item to void Please click item to void Please click item to void Please click item to void Please click item to void Please click item to void Please click item to void</marquee>
+  </div>
+
+
+  <div class="center-body">
+    <img src="../Behavior.JS/the-rock.gif" id="gif">
+    <div class="loader-circle-28"></div>
+    <b>Created by: Johnrave Mimay</b>
+    </div>
+
+    <div class="login-loading">
+      <div class="loader-circle-28"></div>
+      </div>
+
+    <div class="modal-container">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <h1>Cashier Register</h1>
+        <h3 id="createerr"></h3>
+        <input type="text" id="username" placeholder="Enter your username">
+        <input type="text" id="firstname" placeholder="Enter your Firstname">
+        <input type="text" id="lastname" placeholder="Enter your Surname">
+        <input type="password" id="password" placeholder="Enter your password">
+        <input type="password" id="cpass" placeholder="Confirm Password">
+
+      <button class="btn" id="btnSub" onclick="CreateAcc()">Submit</button>
+    </div>
+
+    <div class="modal-Login">
+      <button class="login-close" onclick="closeModal()">&times;</button>
+      <h1>Cashier Login</h1>
+   
+        <input type="text" id="userlog" placeholder="Enter your username">
+
+     
+        <input type="password" id="userlogpass" placeholder="Enter your password">
+
+      <button class="loginbtn" onclick="Login()">Login</button>
+    </div>
+
+
+    <div class="modal-void">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <h1>Authority Registration</h1>
+        <h3 id="vcreateerr"></h3>
+        <input type="number" id="vname" placeholder="Authority number">
+        <input type="password" id="vpass" placeholder="Enter your password">
+        <input type="password" id="cvpass" placeholder="Confirm Password">
+
+      <button class="btn" id="btnSub" onclick="VoidRegistration()">Submit</button>
+    </div>
+
+
+     <!-- Void -->
+    <div class="ModalContainer">
+      <div id="passwordModal" class="modal">
+        <div class="modal-content">
+          <h1 id="VOIDPASSTEXT">⚠️VOIDPASS⚠️</h1>
+          <span class="close" onclick="VoidClose()">&times;</span>
+          <input type="number"  id="voidNumber" placeholder="Authority number">
+          <input type="password" id="passwordInput" placeholder="Password" />
+          <input type="button" value="Enter" class="Voidbtn" onclick="VoidPass()">
+        </div>
+      </div>
+    </div>
+  <!--**************************************************************-->
+
+  <div class="parent">
+    <div class="div1">
+      <div class="ProductList">
+        <div class="labels">
+          <div class="lbl1">
+            <span>Qty</span>
+            <span>| Product |</span>
+          </div>
+
+          <div class="ModeofEating">
+            <p id="ModeofEating">Dine in</p>
+          </div>
+
+          <div class="lbl3">
+            <p>| Price</p>
+          </div>
+
+        </div>
+        <div class="displaylbl">
+          <ul class="List">
+
+          </ul>
+        </div>
+
+
+        <div class="amount">
+          <sub>Total amount</sub>
+          <h2 id="amountDisplay"> <span id="mny">0</span></h2>
+        </div>
+      </div>
+    </div>
+    <div class="div2">
+      <div class="Calc">
+        <sup>quantity</sup>
+        <div id="numDisplay"></div>
+        <input id="Up" type="button" value="Up" />
+        <input class="CalcEmp1" type="button" value="" />
+        <input id="Down" type="button" value="Down" />
+        <input class="numbtn" type="button" value="1" onclick="CalNum(1)" />
+        <input class="numbtn" type="button" value="2" onclick="CalNum(2)" />
+        <input class="numbtn" type="button" value="3" onclick="CalNum(3)" />
+        <input class="numbtn" type="button" value="4" onclick="CalNum(4)" />
+        <input class="numbtn" type="button" value="5" onclick="CalNum(5)" />
+        <input class="numbtn" type="button" value="6" onclick="CalNum(6)" />
+        <input class="numbtn" type="button" value="7" onclick="CalNum(7)" />
+        <input class="numbtn" type="button" value="8" onclick="CalNum(8)" />
+        <input class="numbtn" type="button" value="9" onclick="CalNum(9)" />
+        <input class="numbtn" type="button" value="X" onclick="clearNum()" />
+        <input class="numbtn" type="button" value="0" onclick="CalNum(0)" />
+        <input class="CalcEmp2" type="button" />
+        <button  id="Payment" onclick="Payment()">Checkout</button>
+      </div>
+
+      <div class="Payment">
+        <sup>Cash info</sup>
+        <div id="PaymentDisplay"></div>
+        <input id="ExactAmount" type="button" value="ExactAmount" onclick="ExactAmount()" />
+        <input type="button"  />
+        <input class="numbtn" type="button" value="1" onclick="digit(1)" />
+        <input class="numbtn" type="button" value="2" onclick="digit(2)" />
+        <input class="numbtn" type="button" value="3" onclick="digit(3)" />
+        <input type="button"  />
+        <input class="numbtn" type="button" value="4" onclick="digit(4)" />
+        <input class="numbtn" type="button" value="5" onclick="digit(5)" />
+        <input class="numbtn" type="button" value="6" onclick="digit(6)" />
+        <input class="numbtn" type="button" value="7" onclick="digit(7)" />
+        <input class="numbtn" type="button" value="8" onclick="digit(8)" />
+        <input class="numbtn" type="button" value="9" onclick="digit(9)" />
+        <input class="numbtn" type="button" value="X" onclick="ResetPaymentDisplay()" />
+        <input class="numbtn" type="button" value="0" onclick="digit(0)" />
+        <input class="CalcEmp2" type="button" />
+        <input class="numbtn" id="Checkout" type="button" value="Check" onclick="CashDisplayCheck()" />
+      </div>
+    </div>
+    <div class="div3">
+      <div class="sideBtns">
+        <input type="button"/>
+        <input type="button" class="MOF" value="DI|TO" onclick="ModeOfEating()"/>
+        <input type="button"/>
+        <input type="button"/>
+        <input type="button"/>
+        <input type="button"/>
+        <input type="button" class="void" onclick="Void()" value="VOID"/>
+        <input type="button" class="MM" onclick="Begin()">
+
+
+      </div>
+    </div>
+
+
+    <div class="div4">
+      <section class="dish">
+        <!-- Products -->
+
+        <input type="button" value="Silog Products" class="main-button" onclick="SilogProductMeal()" />
+        <input type="button" value="Sizzling's" class="main-button" onclick="SizzlingProduct()" />
+        <input type="button" value="Family Meals" class="main-button" onclick="FamilyMeal()" />
+        <input type="button" value="" class="main-button" />
+        <input type="button" value="" class="main-button" />
+        <input type="button" value="Beverages" class="main-button" onclick="Beverages()">
+        <input type="button" value="Desserts" class="main-button" onclick="Dessert()" />
+        <input type="button" value="Unli" class="main-button" onclick="Unli()"/>
+        <input type="button" value="Noodles" class="main-button" onclick="Noodles()" />
+        <input type="button" value="Sandwiches" class="main-button" onclick="SandWich()" />
+        <input type="button" value="" class="main-button" />
+        <input type="button" value="" class="main-button" />
+        <input type="button" value="Extras" class="main-button" onclick="Extra()">
+        <input type="button" value="" class="main-button">
+        <input type="button" class="main-button">
+        <input type="button" class="main-button">
+        <input type="button" class="main-button">
+        <input type="button" class="main-button">
+        <input type="button" class="main-button">
+        <input type="button" class="main-button">
+        <input type="button" value="" class="main-button">
+      </section>
+
+      <!-- Main Menu -->
+      <section class="Main">
+        
+        <input type="button" class="MainBtn" value="Receipts" onclick="FindReceipt()">
+        <input type="button" class="MainBtn" />   
+        <input type="button" value="" class="MainBtn" />
+        <input type="button" value="Dine In" id="DineinBtn" class="MainBtn" onclick="DineIn()"/>
+        <input type="button" value="" class="MainBtn" />
+        <input type="button" value="" class="MainBtn" />
+        <input type="button" value="Void Registration" class="MainBtn" onclick="VoidOpen()">
+        <input type="button" value="Cashier Off" id="CashierOff" class="MainBtn" onclick="CashierOff()" />
+        <input type="button" value="Cashier On" class="MainBtn" onclick="CashierOn()"/>
+        <input type="button" value="Register" class="MainBtn" onclick="RegisterAcc()"/>
+        <input type="button" value="" class="MainBtn">
+        <input type="button" value="" class="MainBtn" />
+        <input type="button" value="" class="MainBtn" />
+        <input type="button" value="" class="MainBtn">
+        <input type="button" value="Cut-off" class="MainBtn" onclick="cutOff()" />
+        <input type="button" class="">
+        <input type="button" class="MainBtn">
+        <input type="button" class="MainBtn">
+        <input type="button" value="Reset CM" class="MainBtn" onclick="ResetCM()">
+        <input type="button" class="MainBtn">
+        <input type="button" value="Shutdown" class="MainBtn" onclick="shutDown()">
+      </section>
+
+
+      
+    </div>
+
+    <div class="drinks">
+      <div class="drinksBtn">
+        <input type="button" value="&#8592" class="DrinkItemBack" onclick="DrinkItemBack()">
+        <input type="button" value="RCoke" class="drinkItem" onclick="Product('Regular Coke', 20)">
+        <input type="button" value="Large Coke" class="drinkItem" onclick="Product('Large Coke', 45)">
+        <input type="button" value="RRoyal" class="drinkItem" onclick="Product('Regular Royal', 20)">
+        <input type="button" value="Large Royal" class="drinkItem" onclick="Product('Large Royal', 45)">
+        <input type="button" value="Regular Ice Tea" class="drinkItem" onclick="Product('Regular Ice Tea', 20)">
+        <input type="button" value="Large Ice Tea" class="drinkItem" onclick="Product('Large Ice Tea', 45)">
+        <input type="button" value="Regular Sprite" class="drinkItem" onclick="Product('Regular Sprite', 20)">
+        <input type="button" value="Large Sprite" class="drinkItem" onclick="Product('Large Sprite', 45)">
+        <input type="button" value="Regular Cokezero" class="drinkItem" onclick="Product('Regular Cokezero', 20)">
+        <input type="button" value="Large Cokezero" class="drinkItem" onclick="Product('Large Cokezero', 45)">
+        <input type="button" value="" class="drinkItem">
+      </div>
+    </div>
+
+    <div class="SilogProducts">
+      <div class="SilogBtn">
+        <input type="button" class="SilogItemBack" value="&#8592" onclick="SilogItemBack()">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Hotsilog" onclick="Product('Hotsilog', 60.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Longsilog" onclick="Product('Longsilog', 65.00)">
+        <input type="button" class="SilogItem" value="Tapasilog" onclick="Product('Tapasilog', 70.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Chosilog" onclick="Product('Chosilog', 60.00)">
+        <input type="button" class="SilogItem" value="Spamsilog" onclick="Product('Spamsilog', 70.00)">
+        <input type="button" class="SilogItem" value="Bangsilog" onclick="Product('Bangsilog', 70.00)">
+        <input type="button" class="SilogItem" value="Chicksilog" onclick="Product('Chicksilog', 80.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Tosilog" onclick="Product('Tosilog', 70.00)">
+        <input type="button" class="SilogItem" value="Siosilog" onclick="Product('Siosilog', 30.00)">
+        <input type="button" class="SilogItem" value="Dogsilog" onclick="Product('Dogsilog', 30.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Bacsilog" onclick="Product('Bacsilog', 40.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Masilog " onclick="Product('Masilog ', 40.00)">
+        <input type="button" class="SilogItem" value="Burgersilog " onclick="Product('Burgersilog ', 40.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Porksilog" onclick="Product('Porksilog', 80.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Dangsilog" onclick="Product('Dangsilog', 40.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem" value="Cornsilog" onclick="Product('Cornsilog', 60.00)">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem">
+        <input type="button" class="SilogItem">
+      </div>
+    </div>
+
+    <div class="SizzlingProduct">
+      <div class="SizzlingBtn">
+        <input type="button" value="&#8592" class="SizzlingBack" onclick="SizzlingBack()">
+        <input type="button" value="" class="SizzlingItem">
+        <input type="button" value="Sizzling PorkSisig" class="SizzlingItem" onclick="Product('SPorkSisig', 70.00)">
+        <input type="button" value="" class="SizzlingItem">
+        <input type="button" value="Sizzling ChickenSisig" class="SizzlingItem" onclick="Product('SChickenSisig', 70.00)">
+        <input type="button" value="" class="SizzlingItem">
+        <input type="button" value="Sizzling Mix" class="SizzlingItem" onclick="Product('Sizzling Mix', 70.00)">
+        <input type="button" value="" class="SizzlingItem">
+        <input type="button" value="Sizzling Porkchop" class="SizzlingItem" onclick="Product('SPorkchop', 100.00)">
+        <input type="button" value="" class="SizzlingItem">
+        <input type="button" value="Sizzling HSausage" class="SizzlingItem" onclick="Product('SHSausage', 90.00)">
+        <input type="button" value="" class="SizzlingItem">
+        <input type="button" value="Sizzling Beef" class="SizzlingItem" onclick="Product('SBeef/', 80)">
+        <input type="button" value="" class="SizzlingItem">
+        <input type="button" value="Sizzling Sisigbangus" class="SizzlingItem" onclick="Product('SBangus', 70.00)">
+      </div>
+    </div>
+
+
+    <div class="SizzlingProductUnli">
+      <div class="SizzlingProductUnliBtn">
+        <input type="button" value="&#8592" class="SizzlingUnliBack" onclick="SizzlingUnliBack()">
+        <input type="button" value="" class="SizzlingUnliItem">
+        <input type="button" value="USizzling PorkSisig" class="SizzlingUnliItem" onclick="Product('SPorkSisig/Unli', 100.00)">
+        <input type="button" value="" class="SizzlingUnliItem">
+        <input type="button" value="USizzling ChickenSisig" class="SizzlingUnliItem" onclick="Product('SChickenSisig/Unli', 100.00)">
+        <input type="button" value="" class="SizzlingUnliItem">
+        <input type="button" value="USizzling Mix" class="SizzlingUnliItem" onclick="Product('Sizzling Mix/Unli', 100.00)">
+        <input type="button" value="" class="SizzlingUnliItem">
+        <input type="button" value="USizzling Porkchop" class="SizzlingUnliItem" onclick="Product('SPorkchop/Unli', 110.00)">
+        <input type="button" value="" class="SizzlingUnliItem">
+        <input type="button" value="USizzling HSausage" class="SizzlingUnliItem" onclick="Product('SHSausage/Unli', 110.00)">
+        <input type="button" value="" class="SizzlingUnliItem">
+        <input type="button" value="USizzling Beef" class="SizzlingUnliItem" onclick="Product('SBeef/Unli', 110.00)">
+        <input type="button" value="" class="SizzlingUnliItem">
+        <input type="button" value="USizzling Sisigbangus" class="SizzlingUnliItem" onclick="Product('SBangus/Unli', 100.00)">
+      </div>
+    </div>
+
+
+    <div class="familyMealsProduct">
+      <div class="familyMealsProductbtn">
+        <input type="button" value="&#8592" class="FmealItemBack" onclick="FmealBack()">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="Family Meal A" class="FmealItem" onclick="Product('FMeal A', 400.00)">
+        <input type="button" value="Family Meal B" class="FmealItem" onclick="Product('FMeal B', 600.00)">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="Family Meal C" class="FmealItem" onclick="Product('FMeal C', 300.00)">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+        <input type="button" value="" class="FmealItem">
+      </div>
+    </div>
+
+
+
+    <div class="NoodlesProduct">
+      <div class="NoodlesProductBtn">
+        <input type="button" value="&#8592" class="NMealBack" onclick="NMealBack()">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="Pancit Ctn" class="NMeal" onclick="Product('Pancit Ctn', 30.00)">
+        <input type="button" value="Lomi" class="NMeal" onclick="Product('Lomi', 40.00)">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="Palabok" class="NMeal" onclick="Product('Palabok', 40.00)">
+        <input type="button" value="Pansit Bhn" class="NMeal" onclick="Product('Pansit Bhn', 25.00)">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="" class="NMeal">
+        <input type="button" value="" class="NMeal">
+      </div>
+    </div>
+
+
+
+    <div class="SandWichesProduct">
+      <div class="SandWichesProductBtn">
+        <input type="button" value="&#8592" class="SandWichBack" onclick="SandWichBack()">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="Burger" class="SandWichItem" onclick="Product('Burger', 30.00)">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="EggSandwich" class="SandWichItem" onclick="Product('EggSandwich', 30.00)">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="Cheese Burger" class="SandWichItem" onclick="Product('Cheese Burger', 35.00)">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="Burger Grande" class="SandWichItem" onclick="Product('Burger Grande', 40.00)">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="CheeseBurger Grande" class="SandWichItem" onclick="Product('CheeseBurger Grande', 45.00)">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="" class="SandWichItem">
+        <input type="button" value="" class="SandWichItem">
+      </div>
+    </div>
+
+
+    <div class="ExtraProduct">
+      <div class="ExtraBtn">
+        <input type="button" value="&#8592" class="ExtraBack" onclick="ExtraBack()">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="Xtra Rice" class="ExtraItem" onclick="Product('Xtra Rice', 20.00)">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="Xtra Gravy" class="ExtraItem" onclick="Product('Xtra Gravy', 10.00)">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="Xtra Egg" class="ExtraItem" onclick="Product('Xtra Egg', 15.00)">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="Xtra PlbkS" class="ExtraItem" onclick="Product('Xtra PlbkS', 20.00)">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="" class="ExtraItem">
+        <input type="button" value="" class="ExtraItem">
+      </div>
+    </div>
+
+
+    <div class="DessertsProduct">
+      <div class="DessertsProductBtn">
+        <input type="button" value="&#8592" class="DessertBack" onclick="DessertBack()">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="Leche Flan" class="DessertItem" onclick="Product('Leche Flan', 29.00)">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="Halo-Halo" class="DessertItem" onclick="Product('Halo-Halo', 45.00)">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="Crema De Leche" class="DessertItem" onclick="Product('Crema De Leche', 45.00)">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="Fudge" class="DessertItem" onclick="Product('Fudge', 20.00)">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="" class="DessertItem">
+        <input type="button" value="" class="DessertItem">
+      </div>
+    </div>
+
+
+    <!--* Payments -->
+
+      <div class="paymentContainer">
+
+      <div class="PaymentDetails">
+        <div class="ReceiptDetails">
+
+        </div>
+      </div>
+        <div class="PaymentOptions">
+          <input type="button" value="&#8592" class="BackPayment" onclick="BackToMain()" />
+          <input type="button" value="1000" class="Cashmoney" />
+          <input type="button" value="500" class="Cashmoney" />
+          <input type="button" value="200" class="Cashmoney" />
+          <input type="button" value="100" class="Cashmoney" />
+          <input type="button" value="50" class="Cashmoney" />
+          <input type="button" value="20" class="Cashmoney" />
+          <input type="button" value="Cash" class="Cash" onclick="CashMe()" />
+        </div>
+    </div>
+
+   
+
+    <!-- RECEIPT CONTENT -->
+    <div class="ReceiptBody">
+      <div class="ReceiptContent">
+          <h1 id="ReceiptLogo">TAPSILOG</h1>
+          <p class="ReceiptAddress">
+            Tokyo Metropolitan Jujutsu High School
+            City: Shibuya,
+            Prefecture: Tokyo,
+            Postal Code: 12345,
+            Country: Japan
+          </p>
+          <br>
+          <p id="CashierName"></p>
+          <p class="DateTime">
+            <span id="Transaction"></span>
+            <span id="Time"></span>
+            <span id="Date"></span>
+          </p>
+          <small>---------------------------------------------------------------</small>
+          <h4 id="Mode"></h4>
+          <div class="Orders">
+            <div class="ReceiptColumn">
+              <span>Qty</span>
+              <span>Item</span>
+              <span>Price</span>
+            </div>
+             <ul class="OrdersList">
+                 
+             </ul>
+          </div>
+
+          <small>---------------------------------------------------------------</small>
+          <div class="MoneyInfo">
+            <p id="TotalAmnt"></p>
+            <p id="CustCash"></p>
+            <p id="Change"></p>
+          </div>
+          <small>---------------------------------------------------------------</small>
+
+          <div class="Thankies">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quo vel officia quaerat quis esse. Similique nobis, quia officiis tenetur molestias animi inventore vitae sapiente provident quasi, quam ratione iste voluptates. Perspiciatis cum commodi distinctio, quam omnis saepe 
+          </div>
+
+
+          <div class="ReceiptNumber">
+              <p id="Number"></p>
+          </div>
+      </div>
+    </div>
+
+
+
+    <!-- Search Receipts -->
+    <div class="SearchBody">
+      <div class="searchContent">
+      <div class="inputData">
+        <p>TXN #</p>
+        <div id="searchInput"></div>
+      </div>
+
+     <div class="txnButton">
+        <input type="button" value="1" onclick="txnNumber(1)" />
+        <input type="button" value="2" onclick="txnNumber(2)" />
+        <input type="button" value="3" onclick="txnNumber(3)" />
+        <input type="button" value="4" onclick="txnNumber(4)" />
+        <input type="button" value="5" onclick="txnNumber(5)" />
+        <input type="button" value="6" onclick="txnNumber(6)" />
+        <input type="button" value="7" onclick="txnNumber(7)" />
+        <input type="button" value="8" onclick="txnNumber(8)" />
+        <input type="button" value="9" onclick="txnNumber(9)" />
+        <input type="button" value="X" id="SearchBtn" onclick="SearchClear()"/>
+        <input type="button" value="0" onclick="txnNumber(0)" />
+        <input type="button" value="Search" id="SearchBtn" onclick="SearchReceipt()" />
+     </div>
+    </div>
+    </div>
+
+    <!-- Searched Receipt -->
+    <div class="SearchedBody">
+      <div class="SeachReceiptContainer">
+    
+        <div class="SearchReceiptContent">
+          <div class="Element">
+
+          </div>
+       </div>
+    
+
+      <div class="SearchRecBtn">
+        <button type="button" onclick="PrintSearch()">Print</button>
+        <button type="button" onclick="SearchBack()">Back</button>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="managerModalAuth">
+      <div class="managerModalAuthContent">
+        <h1 id="pinText">Enter your PIN</h1>
+      <div class="managerPinDisplay">
+        <input type="password" placeholder="○" id="pin1" disabled>
+        <input type="password" placeholder="○" id="pin2" disabled>
+        <input type="password" placeholder="○" id="pin3" disabled>
+        <input type="password" placeholder="○" id="pin4" disabled>
+      </div>
+      
+     <div class="managerButton">
+        <input type="button" value="1" onclick="pin(1)" />
+        <input type="button" value="2" onclick="pin(2)" />
+        <input type="button" value="3" onclick="pin(3)" />
+        <input type="button" value="4" onclick="pin(4)" />
+        <input type="button" value="5" onclick="pin(5)" />
+        <input type="button" value="6" onclick="pin(6)" />
+        <input type="button" value="7" onclick="pin(7)" />
+        <input type="button" value="8" onclick="pin(8)" />
+        <input type="button" value="9" onclick="pin(9)" />
+        <input type="button" value="RETURN" id="SearchBtn" onclick="mgModalBack()"/>
+        <input type="button" value="0" onclick="pin(0)" />
+        <input type="button" value="ENTER"  onclick="mgEnter()"/>
+    
+     </div>
+    </div>
+    </div>
+
+    <!-- Button Audio -->
+    <audio id="ClickSound" preload="auto">
+      <source src="../Behavior.JS/clicksound.mp3" type="audio/mpeg">
+    </audio>
+    </body>
+  
+
+</html>
